@@ -101,4 +101,4 @@ services:
 1. ???
 1. Profit!
 
-![ICEcoder](https://i.imgur.com/hNjOkVK.png)
+![ICEcoder](https://i.imgur.com/AeBuZOY.png)
