@@ -6,13 +6,15 @@ ln -sf /plugins /app/ICEcoder/plugins
 
 # permissions
 chown -R abc:abc \
-/config \
-/data \
-/plugins
+  /config \
+  /data \
+  /plugins
 
+echo "[cont-init.d] Checking for lock.file"
 # check for lock file to only run git operations once
 if [ ! -e /lock.file ]; then
   # Give abc a sudo shell for development
+  echo "Lock does not exist, cloning repository"
   chsh abc -s /bin/bash
   sed -e 's/# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/g' \
     -i /etc/sudoers
@@ -26,7 +28,7 @@ if [ ! -e /lock.file ]; then
   fi
 else
   # lock exists not importing project this is a restart
-  echo "Lock exists just starting pylon"
+  echo "Lock exists just starting ICEcoder"
 fi
 
 # create lock file after first run
@@ -41,9 +43,9 @@ cp /config/php/php.ini /etc/php7/php.ini
 mkdir -p /config/sessions
 echo "[cont-init.d] Setting permissions this may take some time"
 chown -R abc:abc \
- /data \
- /config \
- /plugins
+  /data \
+  /config \
+  /plugins
 # make our folders
 mkdir -p \
-/config/{log/ICEcoder,php,sess}
+  /config/{log/ICEcoder,php,sess}

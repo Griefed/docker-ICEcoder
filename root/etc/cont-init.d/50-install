@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bash
 
 ICECODER_VERSION=$(cat /version.txt)
-if [ ! -f "/config/www/ICEcoder/index.php" ]; then
+if [ ! -f "/app/ICEcoder/index.php" ]; then
 	curl -o /tmp/install.zip  -L \
 		"https://github.com/icecoder/ICEcoder/archive/${ICECODER_VERSION}.zip"
 	cd /tmp || exit
