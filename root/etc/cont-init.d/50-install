@@ -9,5 +9,5 @@ if [ ! -f "/config/www/ICEcoder/index.php" ]; then
 	mv ICEcoder-* /app/ICEcoder
 	cd / || exit
 	rm -rf /tmp/* /config/www/data
-	chown -R abc:abc /app/ICEcoder /data
+	chown -R abc:abc /app/ICEcoder
 fi

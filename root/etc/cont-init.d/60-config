@@ -8,11 +8,11 @@ if [ ! -e /lock.file ]; then
     -i /etc/sudoers
   sed -e 's/^wheel:\(.*\)/wheel:\1,abc/g' -i /etc/group
   # create directory for project
-  mkdir -p /data/code
+  mkdir -p /app/ICEcoder/data/code
   # make sure URL is set and folder is empty to clone code
-  if [ ${GITURL+x} ] && [ ! "$(/bin/ls -A /data/code 2>/dev/null)" ] ; then \
+  if [ ${GITURL+x} ] && [ ! "$(/bin/ls -A /app/ICEcoder/data/code 2>/dev/null)" ] ; then \
     # clone the url the user passed to this directory
-    git clone "${GITURL}" /data/code
+    git clone "${GITURL}" /app/ICEcoder/data/code
   fi
 else
   # lock exists not importing project this is a restart
@@ -38,8 +38,9 @@ cp /etc/php7/php.ini /config/php/php.ini
 cp /config/php/php.ini /etc/php7/php.ini
 
 # Link data, code and plugins
-ln -sf /data/code /app/ICEcoder/data
-ln -sf /data/plugins /app/ICEcoder/plugins
+rm /data && \
+    ln -sf /app/ICEcoder/data /data
+    ln -sf /app/ICEcoder/plugins /data/plugins
 
 # permissions
 chown -R abc:abc \
