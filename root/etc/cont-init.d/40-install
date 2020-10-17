@@ -6,8 +6,13 @@ if [ ! -f "/config/www/ICEcoder/index.php" ]; then
 		"https://github.com/icecoder/ICEcoder/archive/${ICECODER_VERSION}.zip"
 	cd /tmp || exit
 	unzip -qq install.zip
+	mkdir /plugins
+	mv ICEcoder-*/data/* /data/
+	mv ICEcoder-*/plugins/* /plugins/
 	mv ICEcoder-* /app/ICEcoder
 	cd / || exit
 	rm -rf /tmp/* /config/www/data
+	rm -rf /app/ICEcoder/data
+	rm -rf /app/ICEcoder/plugins
 	chown -R abc:abc /app/ICEcoder
 fi

@@ -1,0 +1,11 @@
+#!/usr/bin/with-contenv bash
+
+# Link data, code and plugins
+ln -sf /data /app/ICEcoder/data
+ln -sf /plugins /app/ICEcoder/plugins
+
+# permissions
+chown -R abc:abc \
+/config
+/data
+/plugins
