@@ -34,13 +34,14 @@ touch /lock.file
 cp /config/php/php.ini /etc/php7/php.ini
 
 # Link data, code and plugins
-ln -sf /data /app/ICEcoder/data
-ln -sf /plugins /app/ICEcoder/plugins
+sudo -u abc ln -sf /data /app/ICEcoder/data
+sudo -u abc ln -sf /plugins /app/ICEcoder/plugins
 
 # permissions
 mkdir -p /config/sessions
 echo "[cont-init.d] Setting permissions this may take some time"
 chown -R abc:abc \
+  /app/ICEcoder \
   /data \
   /config \
   /plugins
