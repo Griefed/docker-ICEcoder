@@ -1,9 +1,5 @@
 #!/usr/bin/with-contenv bash
 
-# Link data, code and plugins
-ln -sf /data /app/ICEcoder/data
-ln -sf /plugins /app/ICEcoder/plugins
-
 echo "[cont-init.d] Checking for lock.file"
 # check for lock file to only run git operations once
 if [ ! -e /lock.file ]; then
@@ -36,6 +32,10 @@ touch /lock.file
 [[ ! -e "/config/php/php.ini" ]] && \
     cp /etc/php7/php.ini /config/php/php.ini
 cp /config/php/php.ini /etc/php7/php.ini
+
+# Link data, code and plugins
+ln -sf /data /app/ICEcoder/data
+ln -sf /plugins /app/ICEcoder/plugins
 
 # permissions
 mkdir -p /config/sessions
