@@ -98,8 +98,6 @@ RUN \
             /root/.cache \
             /tmp/* && \
         echo "**** Misc ****" && \
-        mkdir -p \
-            /data/plugins && \
         echo ${ICECODER_VERSION} > /version.txt
 
 # Copy local files

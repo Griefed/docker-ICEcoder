@@ -28,6 +28,7 @@ echo "[cont-init.d] Setting permissions this may take some time"
 chown -R abc:abc \
  /data \
  /config
+ /data/plugins
 # make our folders
 mkdir -p \
 /config/{log/ICEcoder,php,sess}
@@ -51,3 +52,4 @@ ln -sf /data/plugins /app/ICEcoder/plugins
 # permissions
 chown -R abc:abc \
 /config
+/data
