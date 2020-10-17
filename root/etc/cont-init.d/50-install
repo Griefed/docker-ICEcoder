@@ -1,0 +1,14 @@
+#!/usr/bin/with-contenv bash
+
+ICECODER_VERSION=$(cat /version.txt)
+if [ ! -f "/config/www/ICEcoder/index.php" ]; then
+	curl -o /tmp/install.zip  -L \
+		"https://github.com/icecoder/ICEcoder/archive/${ICECODER_VERSION}.zip"
+	cd /tmp || exit
+	unzip -qq install.zip
+	mv ICEcoder-*/plugins/* /data/plugins
+	mv ICEcoder-* /app/ICEcoder
+	cd / || exit
+	rm -rf /tmp/* /config/www/data
+	chown -R abc:abc /app/ICEcoder /data
+fi

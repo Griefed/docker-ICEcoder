@@ -1,0 +1,53 @@
+#!/usr/bin/with-contenv bash
+
+# check for lock file to only run git operations once
+if [ ! -e /lock.file ]; then
+  # Give abc a sudo shell for development
+  chsh abc -s /bin/bash
+  sed -e 's/# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/g' \
+    -i /etc/sudoers
+  sed -e 's/^wheel:\(.*\)/wheel:\1,abc/g' -i /etc/group
+  # create directory for project
+  mkdir -p /data/code
+  # make sure URL is set and folder is empty to clone code
+  if [ ${GITURL+x} ] && [ ! "$(/bin/ls -A /data/code 2>/dev/null)" ] ; then \
+    # clone the url the user passed to this directory
+    git clone "${GITURL}" /data/code
+  fi
+else
+  # lock exists not importing project this is a restart
+  echo "Lock exists just starting pylon"
+fi
+
+# create lock file after first run
+touch /lock.file
+
+# permissions
+mkdir -p /config/sessions
+echo "[cont-init.d] Setting permissions this may take some time"
+chown -R abc:abc \
+ /data \
+ /config
+# make our folders
+mkdir -p \
+/config/{log/ICEcoder,php,sess}
+
+# copy php ini for user editing
+[[ ! -e "/config/php/php.ini" ]] && \
+cp /etc/php7/php.ini /config/php/php.ini
+cp /config/php/php.ini /etc/php7/php.ini
+
+# setting email config file.
+if [ ! -f "/config/ssmtp.conf" ]; then
+cp /defaults/ssmtp.conf /config/ssmtp.conf
+chown abc:abc /config/ssmtp.conf
+fi
+cp /config/ssmtp.conf /etc/ssmtp/ssmtp.conf
+
+# Link data, code and plugins
+ln -sf /data/code /app/ICEcoder/data
+ln -sf /data/plugins /app/ICEcoder/plugins
+
+# permissions
+chown -R abc:abc \
+/config
