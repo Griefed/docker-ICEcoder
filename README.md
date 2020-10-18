@@ -11,7 +11,7 @@ ICEcoder is a browser based code editor, which provides a modern approach to bui
 
 ---
 
-Creates a Container which runs [icecoder's](https://github.com/icecoder) [ICEcoder](https://github.com/icecoder/ICEcoder), with [lsiobase/alpine](https://hub.docker.com/r/lsiobase/alpine) as the base image, as seen on https://icecoder.net/.
+Creates a Container which runs [icecoder's](https://github.com/icecoder) [ICEcoder](https://github.com/icecoder/ICEcoder), with [lsiobase/alpine](https://hub.docker.com/r/lsiobase/alpine) as the base image, as seen on [icecoder.net](https://icecoder.net/). A demo can be viewed [here](http://demo.icecoder.net/ICEcoder/)
 
 The lasiobase/alpine image is a custom base image built with [Alpine linux](https://alpinelinux.org/) and [S6 overlay](https://github.com/just-containers/s6-overlay).
 Using this image allows us to use the same user/group ids in the container as on the host, making file transfers much easier
@@ -101,4 +101,4 @@ services:
 1. ???
 1. Profit!
 
-![ICEcoder](https://i.imgur.com/AeBuZOY.png)
+![ICEcoder](https://i.imgur.com/7sBU7oS.png)
