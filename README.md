@@ -16,6 +16,8 @@ Creates a Container which runs [icecoder's](https://github.com/icecoder) [ICEcod
 The lasiobase/alpine image is a custom base image built with [Alpine linux](https://alpinelinux.org/) and [S6 overlay](https://github.com/just-containers/s6-overlay).
 Using this image allows us to use the same user/group ids in the container as on the host, making file transfers much easier
 
+![ICEcoder](https://i.imgur.com/7sBU7oS.png)
+
 ## Deployment
 
 ### Pre-built images
@@ -102,5 +104,3 @@ services:
 1. Visit IP.ADDRESS.OF.HOST:8080
 1. ???
 1. Profit!
-
-![ICEcoder](https://i.imgur.com/7sBU7oS.png)
