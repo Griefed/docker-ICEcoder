@@ -1,4 +1,4 @@
-[![ICEcoder](https://i.griefed.de/images/2020/10/18/icecoder.png)](https://github.com/icecoder/ICEcoder)
+[![ICEcoder](https://i.griefed.de/images/2020/10/18/icecoderd9dfc034f36230dc.png)](https://github.com/icecoder/ICEcoder)
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/griefed/icecoder?style=flat-square)](https://hub.docker.com/repository/docker/griefed/icecoder)
 [![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/griefed/icecoder?label=Image%20size&sort=date&style=flat-square)](https://hub.docker.com/repository/docker/griefed/icecoder)
