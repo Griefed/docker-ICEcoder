@@ -11,70 +11,25 @@ RUN \
         alpine-base \
         bzip2 \
         curl \
-        fbida-exiftran \
-        ffmpeg \
         git \
         gzip \
         imagemagick \
-        jq \
         libxml2 \
         libzip \
         libzip-dev \
         libzip-doc \
         libzip-tools \
-        memcached \
         php7 \
-        php7-apcu \
-        php7-bcmath \
         php7-bz2 \
-        php7-calendar \
-        php7-ctype \
         php7-curl \
-        php7-dba \
-        php7-dom \
-        php7-exif \
-        php7-fileinfo \
-        php7-fpm \
-        php7-ftp \
-        php7-gd \
-        php7-gettext \
-        php7-gmp \
         php7-iconv \
         php7-imagick \
-        php7-imap \
-        php7-intl \
         php7-json \
-        php7-ldap \
-        php7-mcrypt \
-        php7-memcached \
-        php7-mysqli \
-        php7-mysqlnd \
-        php7-opcache \
-        php7-pcntl \
-        php7-pdo_mysql \
-        php7-pdo_pgsql \
-        php7-pdo_sqlite \
-        php7-pear \
         php7-pecl-imagick \
-        php7-pgsql \
-        php7-phar \
-        php7-posix \
-        php7-pspell \
-        php7-redis \
-        php7-snmp \
-        php7-sodium \
-        php7-sqlite3 \
-        php7-ssh2 \
-        php7-tokenizer \
         php7-xml \
         php7-xmlreader \
         php7-xmlrpc \
         php7-zip \
-        re2c \
-        rsync \
-        samba-client \
-        sqlite \
-        ssmtp \
         subversion \
         sudo \
         tar \
