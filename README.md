@@ -86,6 +86,7 @@ services:
     build: ./icecoder/
     restart: unless-stopped
     volumes:
+      - ./icecoder/code:/code
       - ./icecoder/config:/config
       - ./icecoder/data:/data
       - ./icecoder/plugins:/plugins
