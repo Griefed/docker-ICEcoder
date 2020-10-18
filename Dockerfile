@@ -94,4 +94,4 @@ COPY root/ /
 
 # Communicate ports and volumes to be used
 EXPOSE 8080
-VOLUME /config /data /plugins
+VOLUME /config /data /plugins /code

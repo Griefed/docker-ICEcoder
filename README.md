@@ -28,6 +28,7 @@ services:
     image: griefed/icecoder
     restart: unless-stopped
     volumes:
+      - ./icecoder/code:/code
       - ./icecoder/config:/config
       - ./icecoder/data:/data
       - ./icecoder/plugins:/plugins
@@ -44,10 +45,11 @@ services:
 
 Configuration | Explanation
 ------------ | -------------
-restart | [Restart policy](https://docs.docker.com/compose/compose-file/#restart) Either: "no", always, on-failure, unless-stopped
-volumes | /config contains all relevant configuration files.
-volumes | /data contains all relevant data like code. /data/code is the directory where GITURL is cloned into, for example.
-volumes | /plugins contains all plugin files.
+[Restart policy](https://docs.docker.com/compose/compose-file/#restart) | "no", always, on-failure, unless-stopped
+code volume | Contains GITURL repository.
+config volume | Contains config files and logs.
+data volume | Contains ICEcoder data like backups.
+plugins volume | Contains all plugin files.
 GITURL | Specify a GitHub repository to checkout on first run of the container.
 TZ | Timezone
 PUID | for UserID
