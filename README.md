@@ -43,6 +43,12 @@ services:
       - 8080:8080
 ```
 
+## Raspberry Pi
+
+To run this container on a Raspberry Pi, use the `arm`-tag. I've tested it on a Raspberry Pi 3B.
+
+`griefed/icecoder:arm`
+
 ## Configuration
 
 Configuration | Explanation
@@ -71,10 +77,9 @@ In this instance `PUID=1000` and `PGID=1000`, to find yours use `id user` as bel
     uid=1000(dockeruser) gid=1000(dockergroup) groups=1000(dockergroup)
 ```
 
-### Raspberry Pi & building the image yourself
+### Building the image yourself
 
-Using the [Dockerfile](https://github.com/Griefed/docker-ICEcoder/blob/lsiobase/alpine/Dockerfile), this container can be built and run on a Raspberry Pi.
-I've tested it on a Raspberry Pi 3B.
+Use the [Dockerfile](https://github.com/Griefed/docker-ICEcoder/Dockerfile) to build the image yourself, in case you want to make any changes to it
 
 #### docker-compose.yml
 
