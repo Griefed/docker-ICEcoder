@@ -1,4 +1,4 @@
-[![ICEcoder](https://i.griefed.de/images/2020/10/18/icecoderd9dfc034f36230dc.png)](https://github.com/icecoder/ICEcoder)
+[![ICEcoder](img/docker-ICEcoder_header.png)](https://github.com/icecoder/ICEcoder)
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/griefed/icecoder?style=flat-square)](https://hub.docker.com/repository/docker/griefed/icecoder)
 [![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/griefed/icecoder?label=Image%20size&sort=date&style=flat-square)](https://hub.docker.com/repository/docker/griefed/icecoder)
@@ -9,7 +9,7 @@
 
 ICEcoder is a browser based code editor, which provides a modern approach to building websites. By allowing you to code directly within the web browser, online or offline, it means you only need one program (your browser) to develop sites, plus can test on actual web servers. After development, you can also maintain the website easily, all of which make for speedy and smart development.
 
-![ICEcoder](https://i.imgur.com/7sBU7oS.png)
+[![ICEcoder](img/docker-ICEcoder_screenshot.png)](https://github.com/icecoder/ICEcoder)
 
 ---
 
