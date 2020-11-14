@@ -3,13 +3,12 @@
 ICECODER_VERSION=$(cat /version.txt)
 if [ ! -f "/app/ICEcoder/index.php" ]; then
 	curl -o /tmp/install.zip  -L \
-		"https://github.com/icecoder/ICEcoder/archive/${ICECODER_VERSION}.zip"
-	cd /tmp || exit
+		"https://github.com/icecoder/ICEcoder/archive/$ICECODER_VERSION.zip"
+	cd /tmp
 	unzip -qq install.zip
 	mv ICEcoder-*/data/.gitkeep /data/
 	mv ICEcoder-*/plugins/index.php /plugins/
 	mv ICEcoder-* /app/ICEcoder
-	cd / || exit
 	rm -rf /tmp/* /config/www/data
 	rm -rf /app/ICEcoder/data
 	rm -rf /app/ICEcoder/plugins

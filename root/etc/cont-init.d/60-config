@@ -3,18 +3,19 @@
 echo "[cont-init.d] Checking for lock.file"
 # check for lock file to only run git operations once
 if [ ! -e /lock.file ]; then
-  # Give abc a sudo shell for development
-  echo "Lock does not exist, cloning repository"
+  echo "**** Installing ICEcoder ****"
   chsh abc -s /bin/bash
   sed -e 's/# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/g' \
     -i /etc/sudoers
-  sed -e 's/^wheel:\(.*\)/wheel:\1,abc/g' -i /etc/group
+  sed -e 's/^wheel:\(.*\)/wheel:\1,abc/g' \
+    -i /etc/group
+  chsh abc -s /bin/bash
   # create directory for project
   mkdir -p /code/ICEcoder
   # make sure URL is set and folder is empty to clone code
   if [ ${GITURL+x} ] && [ ! "$(/bin/ls -A /data/code/ICEcoder 2>/dev/null)" ] ; then \
     # clone the url the user passed to this directory
-    git clone "${GITURL}" /code/ICEcoder
+    git clone $GITURL /code/ICEcoder
   fi
 else
   # lock exists not importing project this is a restart
@@ -34,9 +35,9 @@ touch /lock.file
 cp /config/php/php.ini /etc/php7/php.ini
 
 # Link data, code and plugins
-sudo -u abc ln -sf /data /app/ICEcoder/data
-sudo -u abc ln -sf /plugins /app/ICEcoder/plugins
-sudo -u abc ln -sf /code /app/ICEcoder/code
+ln -sf /data /app/ICEcoder/data
+ln -sf /plugins /app/ICEcoder/plugins
+ln -sf /code /app/ICEcoder/code
 
 # permissions
 mkdir -p /config/sessions

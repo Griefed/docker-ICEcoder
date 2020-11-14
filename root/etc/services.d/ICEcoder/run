@@ -1,6 +1,6 @@
 #!/usr/bin/with-contenv bash
 
-cd /app/ICEcoder || exit
+cd /app/ICEcoder
 
 exec \
 	s6-setuidgid abc \
