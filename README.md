@@ -1,4 +1,4 @@
-[![docker-ICEcoder](img/docker-ICEcoder_header.png)](https://github.com/icecoder/ICEcoder)
+[![docker-ICEcoder](img/docker-ICEcoder_header.png)](https://github.com/Griefed/docker-ICEcoder)
 
 ---
 
@@ -17,9 +17,9 @@ ICEcoder is a browser based code editor, which provides a modern approach to bui
 
 ---
 
-Creates a Container which runs [icecoder's](https://github.com/icecoder) [ICEcoder](https://github.com/icecoder/ICEcoder), with [lsiobase/](https://hub.docker.com/r/lsiobase/) as the base image, as seen on http://demo.icecoder.net/ICEcoder/.
+Creates a Container which runs [icecoder's](https://github.com/icecoder) [ICEcoder](https://github.com/icecoder/ICEcoder), with [lsiobase/alpine](https://hub.docker.com/r/lsiobase/alpine) as the base image, as seen on http://demo.icecoder.net/ICEcoder/.
 
-The lsiobase/ image is a custom base image built with [Alpine linux](https://alpinelinux.org/) and [S6 overlay](https://github.com/just-containers/s6-overlay).
+The [lsiobase/alpine](https://hub.docker.com/r/lsiobase/alpine) image is a custom base image built with [Alpine linux](https://alpinelinux.org/) and [S6 overlay](https://github.com/just-containers/s6-overlay).
 Using this image allows us to use the same user/group ids in the container as on the host, making file transfers much easier
 
 ## Deployment
