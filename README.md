@@ -34,11 +34,15 @@ services:
     image: griefed/icecoder
     restart: unless-stopped
     volumes:
-      - ./path/to/config:/config
+      - ./path/to/icecoder/code:/code
+      - ./path/to/icecoder/config:/config
+      - ./path/to/icecoder/data:/data
+      - ./path/to/icecoder/plugins:/plugins
     environment:
+      - GITURL=https://github.com/icecoder/ICEcoder.git
+      - PUID=1000
+      - PGID=1000
       - TZ=Europe/Berlin
-      - PUID=1000  # User ID
-      - PGID=1000  # Group ID
     ports:
       - 80:8080
       - 
@@ -55,8 +59,10 @@ To run this container on a Raspberry Pi, use the `arm`-tag. I've tested it on a 
 Configuration | Explanation
 ------------ | -------------
 [Restart policy](https://docs.docker.com/compose/compose-file/#restart) | "no", always, on-failure, unless-stopped
+code volume | Contains GITURL repository.
 config volume | Contains config files and logs.
-data volume | Contains your/the containers important data.
+data volume | Contains ICEcoder data like backups.
+plugins volume | Contains all installed plugins.
 TZ | Timezone
 PUID | for UserID
 PGID | for GroupID
@@ -89,11 +95,15 @@ services:
     build: ./docker-ICEcoder/
     restart: unless-stopped
     volumes:
-      - ./path/to/config/files:/config
+      - ./path/to/icecoder/code:/code
+      - ./path/to/icecoder/config:/config
+      - ./path/to/icecoder/data:/data
+      - ./path/to/icecoder/plugins:/plugins
     environment:
+      - GITURL=https://github.com/icecoder/ICEcoder.git
+      - PUID=1000
+      - PGID=1000
       - TZ=Europe/Berlin
-      - PUID=1000  # User ID
-      - PGID=1000  # Group ID
     ports:
       - 8080:8080
       - 
