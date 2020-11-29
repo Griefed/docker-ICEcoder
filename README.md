@@ -9,7 +9,7 @@
 [![GitHub Repo stars](https://img.shields.io/github/stars/Griefed/docker-ICEcoder?label=GitHub%20Stars&style=social)](https://github.com/Griefed/docker-ICEcoder)
 [![GitHub forks](https://img.shields.io/github/forks/Griefed/docker-ICEcoder?label=GitHub%20Forks&style=social)](https://github.com/Griefed/docker-ICEcoder)
 
-docker-ICEcoder
+# docker-ICEcoder
 
 ICEcoder is a browser based code editor, which provides a modern approach to building websites. By allowing you to code directly within the web browser, online or offline, it means you only need one program (your browser) to develop sites, plus can test on actual web servers. After development, you can also maintain the website easily, all of which make for speedy and smart development.
 
@@ -22,9 +22,9 @@ Creates a Container which runs [icecoder's](https://github.com/icecoder) [ICEcod
 The [lsiobase/alpine](https://hub.docker.com/r/lsiobase/alpine) image is a custom base image built with [Alpine linux](https://alpinelinux.org/) and [S6 overlay](https://github.com/just-containers/s6-overlay).
 Using this image allows us to use the same user/group ids in the container as on the host, making file transfers much easier
 
-## Deployment
+# Deployment
 
-### Pre-built images
+## Pre-built images
 
 ```docker-compose.yml
 version: '3.6'
@@ -54,7 +54,7 @@ To run this container on a Raspberry Pi, use the `arm`-tag. I've tested it on a 
 
 `griefed/icecoder:arm`
 
-## Configuration
+# Configuration
 
 Configuration | Explanation
 ------------ | -------------
@@ -81,11 +81,11 @@ In this instance `PUID=1000` and `PGID=1000`, to find yours use `id user` as bel
     uid=1000(dockeruser) gid=1000(dockergroup) groups=1000(dockergroup)
 ```
 
-### Building the image yourself
+# Building the image yourself
 
 Use the [Dockerfile](https://github.com/Griefed/docker-ICEcoder/Dockerfile) to build the image yourself, in case you want to make any changes to it
 
-#### docker-compose.yml
+docker-compose.yml:
 
 ```docker-compose.yml
 version: '3.6'
