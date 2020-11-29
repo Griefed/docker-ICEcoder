@@ -26,26 +26,45 @@ Using this image allows us to use the same user/group ids in the container as on
 
 ## Pre-built images
 
+Using docker-compose:
+
 ```docker-compose.yml
-version: '3.6'
+version: "2"
 services:
   icecoder:
+    image: griefed/icecoder:latest
     container_name: icecoder
-    image: griefed/icecoder
     restart: unless-stopped
-    volumes:
-      - ./path/to/icecoder/code:/code
-      - ./path/to/icecoder/config:/config
-      - ./path/to/icecoder/data:/data
-      - ./path/to/icecoder/plugins:/plugins
     environment:
-      - GITURL=https://github.com/icecoder/ICEcoder.git
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Berlin
+      - TZ=Europe/Berlin # Timezone
+      - PUID=1000 # User ID
+      - PGID=1000 # Group ID
+      - GITURL=https://github.com/icecoder/ICEcoder.git # GitHub Repository to clone during container creation
+    volumes:
+      - /host/path/to/plugins:/plugins # Contains all installed plugins.
+      - /host/path/to/data:/data # Contains ICEcoder data like backups.
+      - /host/path/to/config:/config # Contains config files and logs.
+      - /host/path/to/code:/code # Contains GITURL repository.
     ports:
-      - 80:8080
-      - 
+      - 8080:8080/tcp # WebIDE
+```
+
+Using CLI:
+
+```bash
+docker create \
+  --name=icecoder \
+  -e TZ=Europe/Berlin \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e GITURL=https://github.com/icecoder/ICEcoder.git \
+  -v /host/path/to/plugins:/plugins \
+  -v /host/path/to/data:/data \
+  -v /host/path/to/config:/config \
+  -v /host/path/to/code:/code \
+  -p 8080:8080 \
+  --restart unless-stopped \
+  griefed/icecoder:latest
 ```
 
 ## Raspberry Pi
@@ -91,22 +110,21 @@ docker-compose.yml:
 version: '3.6'
 services:
   icecoder:
-    container_name: icecoder
     build: ./docker-ICEcoder/
+    container_name: icecoder
     restart: unless-stopped
-    volumes:
-      - ./path/to/icecoder/code:/code
-      - ./path/to/icecoder/config:/config
-      - ./path/to/icecoder/data:/data
-      - ./path/to/icecoder/plugins:/plugins
     environment:
-      - GITURL=https://github.com/icecoder/ICEcoder.git
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Berlin
+      - TZ=Europe/Berlin # Timezone
+      - PUID=1000 # User ID
+      - PGID=1000 # Group ID
+      - GITURL=https://github.com/icecoder/ICEcoder.git # GitHub Repository to clone during container creation
+    volumes:
+      - /host/path/to/plugins:/plugins # Contains all installed plugins.
+      - /host/path/to/data:/data # Contains ICEcoder data like backups.
+      - /host/path/to/config:/config # Contains config files and logs.
+      - /host/path/to/code:/code # Contains GITURL repository.
     ports:
-      - 8080:8080
-      - 
+      - 8080:8080/tcp # WebIDE
 ```
 
 1. Clone the repository: `git clone https://github.com/Griefed/docker-ICEcoder.git ./docker-ICEcoder`
