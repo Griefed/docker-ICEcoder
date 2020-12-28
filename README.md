@@ -112,6 +112,14 @@ In this instance `PUID=1000` and `PGID=1000`, to find yours use `id user` as bel
     uid=1000(dockeruser) gid=1000(dockergroup) groups=1000(dockergroup)
 ```
 
+## Changing the file manager root directory
+
+In some cases you may want to change the root directory / file manager root directory of your ICEcoder deployment. Changing it would lead to a better overview of your files and would prevent you from accidentally changing any file of the ICEcoder application. There may, of course, be other reasons for why you would want to change said directory.
+In order to change the file manager root directory, go to the settings menu of your ICEcoder instance and edit the `file manager root`entry like this for example:
+![change_root_dir](https://i.griefed.de/images/2020/12/28/change_root_dir.png)
+
+That directory should be either one of the directories specified in the deployment section, or a subfolder of these. The reason for that being that these directories have their permissions and ownership set everytime the container starts, ensuring file access between host and container.
+
 # Building the image yourself
 
 Use the [Dockerfile](https://github.com/Griefed/docker-ICEcoder/Dockerfile) to build the image yourself, in case you want to make any changes to it
