@@ -118,7 +118,9 @@ In some cases you may want to change the root directory / file manager root dire
 In order to change the file manager root directory, go to the settings menu of your ICEcoder instance and edit the `file manager root`entry like this for example:
 ![change_root_dir](https://i.griefed.de/images/2020/12/28/change_root_dir.png)
 
-That directory should be either one of the directories specified in the deployment section, or a subfolder of these. The reason for that being that these directories have their permissions and ownership set everytime the container starts, ensuring file access between host and container.
+That directory should be either one of the directories specified in the deployment section, or a subfolder of these. The reason for that being that these directories have their permissions and ownership set everytime the container starts, ensuring file access between host and container. I recommend using the `/code`directory. It's specified in the volumes of the Dockerfile and setup during container creation. 
+
+However, said directory is not accessed by the config script which executes during container start, meaning it won't set file permissions for /code and the files inside, you need to manage these yourself. (Thanks to [derekoharrow ](https://github.com/derekoharrow) for the suggestion in [#2](https://github.com/Griefed/docker-ICEcoder/issues/2))
 
 # Building the image yourself
 
