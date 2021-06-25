@@ -28,6 +28,8 @@ ICEcoder is a browser based code editor, which provides a modern approach to bui
 
 [![ICEcoder](https://i.griefed.de/images/2020/11/18/docker-ICEcoder_screenshot.png)](https://github.com/icecoder/ICEcoder)
 
+[[_TOC_]]
+
 ---
 
 Creates a Container which runs [icecoder's](https://github.com/icecoder) [ICEcoder](https://github.com/icecoder/ICEcoder), with [lsiobase/alpine](https://hub.docker.com/r/lsiobase/alpine) as the base image, as seen on http://demo.icecoder.net/ICEcoder/.
