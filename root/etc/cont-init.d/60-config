@@ -5,17 +5,15 @@ chsh abc -s /bin/bash
 echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel
 adduser abc wheel
 
-if [ -n ${GITURL} ] && [ ! -f /giturl.lock ]; then
+if [[ -n ${GITURL} ]] && [[ ! -f /code/giturl.lock ]]; then
   echo "Cloning ${GITURL} into /code"
-  mkdir /code
-  git clone $GITURL /code
+  mkdir -p /code && cd /code && git clone "$GITURL"
   chown -R abc:abc \
     /code
   chmod -R 775 \
     /code
-  touch /giturl.lock
-elif [ -z ${GITURL} ] && [ ! -f /giturl.lock ]; then
-  mkdir /clone
+  touch /code/giturl.lock
+elif [[ -z ${GITURL} ]] && [[ ! -f /code/giturl.lock ]]; then
   chown -R abc:abc \
     /code
   chmod -R 775 \
