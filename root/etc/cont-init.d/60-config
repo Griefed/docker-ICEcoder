@@ -7,22 +7,20 @@ adduser abc wheel
 
 if [[ -n ${GITURL} ]] && [[ ! -f /code/giturl.lock ]]; then
   echo "Cloning ${GITURL} into /code"
-  mkdir /code && cd /code;
-  git clone "$GITURL";
+  mkdir -p /code && cd /code && git clone "$GITURL"
   chown -R abc:abc \
-    /code;
+    /code
   chmod -R 775 \
-    /code;
-  touch /code/giturl.lock;
+    /code
+  touch /code/giturl.lock
 elif [[ -z ${GITURL} ]] && [[ ! -f /code/giturl.lock ]]; then
-  mkdir /clone;
   chown -R abc:abc \
-    /code;
+    /code
   chmod -R 775 \
-    /code;
-  touch /giturl.lock;
+    /code
+  touch /giturl.lock
 else
-  echo "Either GITURL was not specified or was already cloned";
+  echo "Either GITURL was not specified or was already cloned"
 fi
 
 # make our folders
