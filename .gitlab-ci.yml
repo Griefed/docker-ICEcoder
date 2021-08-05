@@ -45,6 +45,7 @@ release:
     - npx semantic-release
   only:
     - master
+    - lsiobase/alpine
   except:
     refs:
       - tags
